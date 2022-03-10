@@ -12,37 +12,39 @@ public:
 		a=real; b=imaginary;
 	}
 
-	friend complex sum(complex, complex);
-	friend void show(complex);
+	void sum(complex, complex);
+	void show();
 };
 
 
-complex sum(complex c1, complex c2)
+void complex::sum(complex c1, complex c2)
 {
-	complex c3;
-	c3.a = c1.a + c2.a;
-	c3.b = c1.b + c2.b;
-	return c3;
+	
+	a = c1.a + c2.a;
+	b = c1.b + c2.b;
 }
 
-void show(complex c)
+void complex::show()
 {
-	cout << c.a <<" + j" << c.b<<endl;
+	if(b<0)
+	{   cout <<a<<" - j" <<(-1)*b<<endl;}
+	else
+	{cout <<a<<" + j" <<b<<endl;}
 }
 
 
 int main(){
 
 	float a, b;
-	cout <<"Enter the real part of complex number";
-    cin >>a;
-	cout <<"Enter the imaginary part of complex number";
+	cout <<"Enter the real part of complex number : "<<endl;
+        cin >>a;
+	cout <<"Enter the imaginary part of complex number : "<<endl;
 	cin >>b;
 
 	float c, d;
-	cout <<"Enter the real part of complex number";
+	cout <<"Enter the real part of complex number : "<<endl;
 	cin >>c;
-	cout <<"Enter the imaginary part of complex number";
+	cout <<"Enter the imaginary part of complex number : "<<endl;
 	cin >>d;
 
 
@@ -50,12 +52,12 @@ int main(){
 	complex X, Y, Z;
 	X = complex(a,b);
 	Y = complex(c,d);
-	Z = sum(X,Y);
+	Z.sum(X,Y);
 
 	cout << "X : ";
-	show(X);
+	X.show();
 	cout << "Y : ";
-	show(Y);
+	Y.show();
 	cout << "Z : ";
-	show(Z);
+	Z.show();
 }

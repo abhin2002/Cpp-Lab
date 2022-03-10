@@ -18,7 +18,7 @@ public:
 		str = new char[length+1];
 		strcpy(str,s);
 	}
-	void get_string(){cin>>str;}
+	void get(){cin>>str;}
 	void display(){cout<<str<<endl;}
 	void concate(String a,String b);
 	void stlength();
@@ -36,7 +36,7 @@ void String::concate(String a,String b)
 
 void String::stlength()
 {
-	count<<strlen(str);
+	cout<<strlen(str);
 }
 
 void String::compare(String s1, String s2)
@@ -44,33 +44,35 @@ void String::compare(String s1, String s2)
 	int m,n;
 	m=strlen(s1.str);
 	n=strlen(s2.str);
-	if(m<=n)
+	if(m<n)
 		cout<<s1.str<<" is smaller than "<<s2.str<<"\n";
-	else
-		cout<<s1.str<<" is smaller than "<<s2.str<<"\n";
+	else if(m>n)
+		cout<<s1.str<<" is greater than "<<s2.str<<"\n";
+        else
+                cout<<"Both strings have same length\n";
 }
 
 int main()
 {
 	String Str1, Str2, Str3;
 	cout<<"Enter the first string : ";
-	Str1.get_string();
-	cout<<"\nEnter second string : ";
-	Str2.get_string();
-	cout<<"First string : ";
+	Str1.get();
+	cout<<"Enter second string  : ";
+	Str2.get();
+	cout<<"First string   : ";
 	Str1.display();
-	cout<<"Second Sttring is : ";
+	cout<<"Second Sttring : ";
 	Str2.display();
 	Str3.concate(Str1,Str2);
 	cout<<"After concatination : ";
 	Str3.display();
-	cout<<"\nLength of first string : ";
+	cout<<"\nLength of first string        : ";
 	Str1.stlength();
-	cout<<"\nlength of second string : ";
+	cout<<"\nLength of second string       : ";
 	Str2.stlength();
 	cout<<"\nLength of concatenated string : ";
 	Str3.stlength();
-	cout<<"Comparison of string : ";
+	cout<<"\nComparison of string : ";
 	Str3.compare(Str1,Str2);
 	return 0;
 

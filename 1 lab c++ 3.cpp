@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstring>
 using namespace std;
 
 class student
@@ -7,75 +8,85 @@ class student
 	int roll_no;
 	float mark1, mark2, mark3;
 	char grade;
+	float avg_mark;
 
 public:
 	void input();
-	char calcGrade();
+	void calcGrade();
 	void display();
 };
 
 void student :: input()
 {
-	cout <<"Enter the Name : ";
+	cout <<"Enter the Name                           : ";
 	cin >>name;
-	cout <<"Enter the Roll number : ";
+	cout <<"Enter the Roll number                    : ";
 	cin >>roll_no;
-	cout <<"Enter the Marks of 3 subjects";
+	cout <<"Enter the Marks of 3 subjects out of 100 : \n";
 	cin >>mark1>>mark2>>mark3;
-
 }
 
-char student :: calcGrade()
+void student :: calcGrade()
 
 {
-	float tlMark;
-	tlMark = (mark1+mark2+mark3)/3;
+	avg_mark = (mark1+mark2+mark3)/3;
 
-	if(tlMark > 90)
+	if(avg_mark > 90)
 	{
 		grade = 'A';
 	}
-	else if(80 < tlMark and tlMark <= 90)
+	else if(80 < avg_mark and avg_mark <= 90)
 	{
 		grade = 'B';
 	}
-	else if(70 < tlMark and tlMark <= 80)
+	else if(70 < avg_mark and avg_mark <= 80)
 	{
 		grade = 'C';
 	}
-	else if(60 < tlMark and tlMark <= 70)
+	else if(60 < avg_mark and avg_mark <= 70)
 	{
 		grade = 'D';
 	}
-	else if(50 < tlMark and tlMark<= 60)
+	else if(50 < avg_mark and avg_mark<= 60)
 	{
 		grade = 'E';
 	}
-	else if(40 < tlMark and tlMark <= 50)
-	{
-		grade = 'F';
-	}
 	else
 		{
-		grade = 'G';
+		grade = 'F';
 		}
-	return grade;
 }
 
 void student :: display()
 {
-	cout<<"Student Name : "<<name<<endl;
-	cout<<"Roll no : "<<roll_no<<endl;
+	cout<<"~~~~~~~Student Report~~~~~~~\n";
+	cout<<"Student Name      : "<<name<<endl;
+	cout<<"Roll no           : "<<roll_no<<endl;
 	cout<<"Mark of subject 1 : "<<mark1<< "\nMark of subject 2 : "<<mark2<<"\nMarl of subject 3 : "<<mark3<<endl;
-	cout<<"Total Grade : "<<grade;
+	cout<<"Average Mark      : "<<avg_mark<<endl;
+	cout<<"Total Grade       : "<<grade<<endl;
 }
 
 int main()
 {
-	student X;
-	X.input();
-	X.calcGrade();
-	X.display();
+	student *X;
+	int n;
+	cout<<"Enter the total number of students : ";
+        cin>>n;
+	X= new student[n];
+	int i=0;
+	cout<<"~~~~~~Find the grade of student~~~~~~\n";
+ while(i<n)
+{		
+		
+	
+	X[i].input();
+	X[i].calcGrade();
+	X[i].display();
+	i++;
+      
+ }    
+
 
 	return (0);
 }

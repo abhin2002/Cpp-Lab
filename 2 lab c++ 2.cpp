@@ -9,9 +9,10 @@ long area(long, int);
 
 int main()
 {
-	int n;
-	cout << "Select the shape to find the area.\n";
-	cout <<"1.for Square\n2.for Rectangle\n3.for Circle\n4.for Triangle\n5.for Parallelogram\n";
+        int n=0;
+        while(n!=6){
+	cout << "~~~~Select the shape to find the area.~~~~\n";
+	cout <<"1.for Square\n2.for Rectangle\n3.for Circle\n4.for Triangle\n5.for Parallelogram\n6.Exit";
 	cin >> n;
 
 	if(n == 1)
@@ -49,10 +50,15 @@ int main()
 		cin >> a >> b;
 		cout << "\nArea of parallelogram : "<< area(a, b);
 	}
-	else
+	else if(n==6)
 	{
-		cout <<"You selected a wrong number";
+		cout <<"Thank You";
 	}
+        else{
+                cout<<"You selected a wrong number";
+
+        }
+        }
 
 	return 0;
 

@@ -12,11 +12,11 @@ using namespace std;
 class MATRIX
 {
 	int **m;
-	int d;
 	int d1,d2;
 public:
+
 	MATRIX(){};
-	MATRIX(int x, int y)
+	MATRIX(int x, int y);
 	void input(int &i,int &j,int &value)
 	{
 		m[i][j]=value;
@@ -25,7 +25,7 @@ public:
 	void mtrx_add(MATRIX &, MATRIX &);
 	void mtrx_mult(MATRIX &, MATRIX &);
 	void mtrx_transpose(MATRIX);
-	int matrx_trance(int);
+	int matrx_trace(int);
 };
 
 MATRIX::MATRIX(int x, int y)
@@ -65,9 +65,9 @@ void MATRIX::mtrx_mult(MATRIX &a, MATRIX &b)
 			for(int k=0;k<b.d1;k++)
 			{
 				m[i][j]=m[i][j]+a.m[i][k]*b.m[k][j];
-			}
-			cout<<endl;
-		}
+			}cout<<m[i][j];
+			
+		}cout<<endl;
 	}
 }
 
@@ -84,7 +84,7 @@ void MATRIX::mtrx_transpose(MATRIX a)
 	}
 }
 
-int MATRIX::matrx_trance(int n)
+int MATRIX::matrx_trace(int n)
 {
 	int sum=0;
 	for(int i=0;i<n;i++)
@@ -94,7 +94,7 @@ int MATRIX::matrx_trance(int n)
 	return sum;
 }
 int main() {
-	MATRIX R1, R2, C1, C2;
+	int R1, R2, C1, C2;
 	cout<<"Enter the number of rows and coloum of first matrix : ";
 	cin>>R1>>C1;
 	MATRIX A(R1,C1);
@@ -112,12 +112,13 @@ int main() {
 	cin>>R2>>C2;
 	MATRIX B(R2,C2);
 	cout<<"Enter the elements in the matrix row by row : \n";
-	for(int i=0;i<R2;i++)
+        int x2;
+	for(int i2=0;i2<R2;i2++)
 	{
-		for(int j=0;j<C2;j++)
+		for(int j2=0;j2<C2;j2++)
 		{
 			cin>>x;
-			B.input(i, j, x);
+			B.input(i2, j2, x2);
 		}
 	}
 	if(R1==R2 and C1==C2)
@@ -138,8 +139,8 @@ int main() {
 	T.mtrx_transpose(A);
 	if(R1==C1)
 	cout<<"Trace of matrix : ";
-	MATRIX T2(C1)
-	T2.matrx_trance(x);
+	int trace=A.matrx_trace(R1);
+   	cout<<trace<<endl;
 
 	return 0;
 }

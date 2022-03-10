@@ -21,7 +21,7 @@ class class_2
 	int value2;
 public:
 	void input(void){
-		cout<<"Enter a number : "<<endl;
+		cout<<"Enter a number : ";
 		cin>>value2;
 	}
 	void display(void){cout<< value2 <<endl;}
@@ -30,7 +30,8 @@ public:
 
 void exchange(class_1 & x, class_2 & y)
 {
-	int temp = x.value1;
+        int temp;
+	temp = x.value1;
 	x.value1 = y.value2;
 	y.value2 = temp;
 }

@@ -20,11 +20,11 @@ public:
 
 void TIME :: input()
 {
-	cout << "Enter the hours";
+	cout << "Enter the hours   : ";
 	cin >> hours;
-	cout << "Enter the minutes";
+	cout << "Enter the minutes : ";
 	cin >> minutes;
-	cout << "Enter the seconds";
+	cout << "Enter the seconds : ";
 	cin >> seconds;
 }
 
@@ -46,9 +46,9 @@ int main()
 	T2.input();
 	T3.sum(T1, T2);
 
-	cout << "T1 = "; T1.display();
-	cout << "T2 = "; T2.display();
-	cout << "T3 = "; T3.display();
+	cout << "Time 1     = "; T1.display();
+	cout << "Time 2     = "; T2.display();
+	cout << "Total Time = "; T3.display();
 
 	return 0;
 }

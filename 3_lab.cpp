@@ -2,12 +2,12 @@
 #include <string>
 using namespace std;
 
-int cnt=0;
+int cnt=1;
 
 class bank
 {
-	char cust_name[50], acc_type[30];
-	float acc_no;
+	char cust_name[30], acc_type[30];
+	int acc_no;
 	float balance;
 public:
 	void add_acc();
@@ -23,23 +23,31 @@ void bank::add_acc()
 	acc_no=cnt;
 	cout <<"Enter the account holder name : ";
 	cin >>cust_name;
-	cout <<"Enter the account type";
+	cout <<"Enter the account type        : ";
 	cin>>acc_type;
-	cout <<"Enter the total deposited amount(minimum 500)";
+	cout <<"Enter the total deposited amount(minimum 500) : ";
 	cin>>balance;
+	
+	while(balance<500)
+	{
+		cout<<"\nInvalid Entry\n";
+		cout <<"Enter the total deposited amount(minimum 500) : ";
+	cin>>balance;
+	}
 	cout<<"AC No : "<<acc_no;
 }
 
 void bank ::withdrow()
 {
 	int b;
-	cout<<"Enter the amount to withdraw";
+	cout<<"Enter the amount to withdraw : ";
 	cin>>b;
 	if(balance>= (b+500))
 		balance=balance-b;
 	else{
-		cout<<"Insufficient balance";
+		cout<<"Insufficient balance\n";
 		}
+	cout<<"Current Balance : "<<balance;
 }
 
 
@@ -49,7 +57,7 @@ void bank :: deposit()
 	cout<<"Enter the amount to deposit : ";
 	cin >>b;
 	balance=balance+b;
-	cout<<"Balance : "<<balance;
+	cout<<"Currrent Balance : "<<balance;
 
 }
 
@@ -61,17 +69,23 @@ void bank::balnc_enqr()
 
 void bank::acc_stmnt()
 {
-	cout<<"Name : "<<cust_name;
-	cout<<"\nAC No : "<<acc_no;
-	cout<<"\nAC Type : "<<acc_type;
-	cout<<"\nBalance : "<<balance;
+	cout<<"\n\n";
+        cout<<"    -----------------------------------------";
+        cout<<"~~~ACCOUNT STATEMENT~~~";
+	cout<<"\n";
+	cout<<"\nName    : "<<cust_name<<endl;
+	cout<<"\nAC No   : "<<acc_no<<endl;
+	cout<<"\nAC Type : "<<acc_type<<endl;
+	cout<<"\nBalance : "<<balance<<endl;
+	cout<<"    -----------------------------------------";
 }
 
 int main()
 {
-	bank cust[cnt];
-	int n, ac_no;
-	while(n<=5)
+	bank cust[100];
+	int n=0, ac_no;
+	string is_continue="Y";
+	while(is_continue=="Y")
 	{
 		cout<<"\nYou can do the following"<<"\nEnter the appropriate number";
 		cout<<"\n1 : Add an AC ";
@@ -79,21 +93,20 @@ int main()
 		cout<<"\n3 : Deposit ";
 		cout<<"\n4 : Balance enquiry";
 		cout<<"\n5 : AC Statement ";
-		cout<<"\n6 : Quit";
-		cout<<"\nWhat is your option?";
+		cout<<"\nWhat is your option? : ";
 
 		cin>>n;
 		if(n==1){
 			cust[cnt].add_acc();
-			cnt++;
+			cnt=cnt+1;
 		}
-		else if(1<n and n<7)
+		else if(1<n and n<6)
 		{
 			cout<<"Enter the AC No : ";
 			cin>>ac_no;
 			if(ac_no>(cnt-1))
 			{
-				cout<<"AC No not match.";
+				cout<<"           AC No not match.";
 			}
 			else
 			{
@@ -113,7 +126,10 @@ int main()
 		else
 			cout<<"Try Again";
 
+	cout<<"\nEnter Y to continue or Enter any other key to end the program :";
+   cin>>is_continue;	
 	}
+	cout<<"Thank You\n";
 
 		return 0;
 }
