@@ -3,14 +3,13 @@
 using namespace std;
 
 int const m=50;
+int count = 0;
 
 class Items
 {
-	int itemcode[m];
-	float itemprice[m];
-	int count;
+	int itemcode;
+	float itemprice;
 public:
-	void cnt(void){count = 0;}
 	void getitem(void);
 	void displaysum(void);
 	void remove(void);
@@ -18,13 +17,15 @@ public:
 
 };
 
+Items order[100];
+
 void Items ::getitem(void)
 {
 	cout<<"Enter item code : ";
-	cin>> itemcode[count];
+	cin>> itemcode;
 
 	cout<<"Enter item cost : ";
-	cin>>itemprice[count];
+	cin>>itemprice;
 	count++;
 }
 
@@ -33,7 +34,7 @@ void Items ::displaysum()
 	float sum = 0;
 	for(int i=0; i<count; i++)
 	{
-		sum = sum + itemprice[i];
+		sum = sum + order[i].itemprice;
 
 	}
 	cout<<"\nTotal value : "<<sum;
@@ -47,8 +48,8 @@ void Items ::remove()
 	cin>>a;
 
 	for(int i=0; i<count; i++)
-		if(itemcode[i] == a)
-			itemprice[i] = 0;
+		if(order[i].itemcode == a)
+			order[i].itemprice = 0;
 }
 
 void Items ::displayitems()
@@ -57,14 +58,14 @@ void Items ::displayitems()
 
 	for(int i=0; i<count; i++)
 	{
-		cout<<"\n"<<itemcode[i];
-		cout<<"  "<<itemprice[i];
+		if(order[i].itemprice!=0){
+		cout<<"\n"<<order[i].itemcode;
+		cout<<"  "<<order[i].itemprice;
+		}
 	}
 
 }
 int main() {
-	Items order;
-	order.cnt();
 	int x;
 
 	do
@@ -81,13 +82,14 @@ int main() {
 
 		switch(x)
 		{
-		case 1 : order.getitem();
+		case 1 : order[count].getitem();
+                cout<<count;
 		break;
-		case 2 : order.displaysum();
+		case 2 : order[count].displaysum();
 		break;
-		case 3 : order.remove();
+		case 3 : order[count].remove();
 		break;
-		case 4 : order.displayitems();
+		case 4 : order[count].displayitems();
 		break;
 		case 5 : break;
 		default : cout <<"Error in input, try again\n ;";
