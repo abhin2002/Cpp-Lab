@@ -126,7 +126,7 @@ int main()
 		else
 			cout<<"Try Again";
 
-	cout<<"\nEnter Y to continue or Enter any other key to end the program :";
+	cout<<"\n\n\nEnter Y to continue or Enter any other key to end the program :";
    cin>>is_continue;	
 	}
 	cout<<"Thank You\n";

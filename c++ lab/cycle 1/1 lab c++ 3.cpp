@@ -18,6 +18,7 @@ public:
 
 void student :: input()
 {
+	cout<<"~~~~~~Find the grade of student~~~~~~\n";
 	cout <<"Enter the Name                           : ";
 	cin >>name;
 	cout <<"Enter the Roll number                    : ";
@@ -75,7 +76,6 @@ int main()
         cin>>n;
 	X= new student[n];
 	int i=0;
-	cout<<"~~~~~~Find the grade of student~~~~~~\n";
  while(i<n)
 {		
 		
@@ -84,8 +84,15 @@ int main()
 	X[i].calcGrade();
 	X[i].display();
 	i++;
+	char c;
+	cout<<"\nDo yu want to continue\nPress y for continue or any other key to quit";
+	cin>>c;
+	if(c!='y')
+		break;
       
- }    
+ }  
+
+ cout<<"**** THANK YOU ****\n";
 
 
 	return (0);
