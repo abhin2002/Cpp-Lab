@@ -24,7 +24,7 @@ class vector
 };
 void vector :: getdata(void)
 {
-    cout<<"Entert the x, y, z coardinates of a vector\n";
+    cout<<"Entert the x, y, z coordinates of a vector\n";
     cin>>x>>y>>z;
     magnitude=sqrt((x*x)+(y*y)+(z*z));
 

@@ -53,19 +53,19 @@ class part_time
         }
 };
 
-class engeneer : public employee, public part_time
+class engineer : public employee, public part_time
 {
     float salary;
     public:
-    engeneer(){}
-    engeneer(string a, int t1, int t2, int s) : part_time(s),employee(a, t1, t2)
+    engineer(){}
+    engineer(string a, int t1, int t2, int s) : part_time(t2),employee(a, t1, s)
     {
         salary= Bpay + bonus;
     }
     void display(void);
 };
 
-void engeneer :: display(void)
+void engineer :: display(void)
 {
     put_number();
     put_details();
@@ -84,11 +84,11 @@ int main()
     cin>>name;
     cout<<"Enter the ID number         : ";
     cin>>t1;
-    cout<<"Enter the Bonus Amound      : ";
+    cout<<"Enter the Bonus Amount      : ";
     cin>>t2;
     cout<<"Enter the Basic Pay         : ";
     cin>>s;
-    engeneer e1(name,t1, t2, s);
+    engineer e1(name,t1, t2, s);
     cout<<"\n============================\n";
     e1.display();
     cout<<"\n============================\n";

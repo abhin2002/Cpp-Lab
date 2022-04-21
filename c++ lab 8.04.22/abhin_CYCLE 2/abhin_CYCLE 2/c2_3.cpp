@@ -8,7 +8,7 @@ class vector
     int v[size];
     public:
     vector();
-    friend vector operator *(int a, vector b);
+    friend int operator *(vector a, vector b);
     friend istream & operator >> (istream &, vector &);
     friend ostream & operator << (ostream &, vector &);
 };
@@ -19,12 +19,12 @@ vector :: vector()
         v[i]=0;
 }
 
-vector operator *(int a, vector b)
+int operator *(vector a, vector b)
 {
-    vector c;
+    int sum = 0;
     for(int i=0; i<size; i++)
-        c.v[i]=a*b.v[i];
-    return c;
+        sum+=a.v[i]*b.v[i];
+    return sum;
 }
 
 istream & operator >> (istream &din, vector &b)
@@ -53,10 +53,10 @@ int main()
     cin>>m;
     cout<<endl;
     cout<<"m = "<< m << endl;
-    int n;
-    cout<<"Enter the number to multiply vector m : ";
+    vector n;
+    cout<<"Enter elements of vector n \n";
     cin>>n;
-    vector p;
+    int p;
     p = n*m;
     cout<<"\n";
     cout <<m<< " * "<<n<<" = " << p <<endl;

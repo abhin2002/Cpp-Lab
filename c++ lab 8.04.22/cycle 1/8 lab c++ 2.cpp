@@ -54,10 +54,10 @@ int main(){
 	Y = complex(c,d);
 	Z.sum(X,Y);
 
-	cout << "X : ";
+	cout << "First Complex Number     : ";
 	X.show();
-	cout << "Y : ";
+	cout << "Second Complex Number    : ";
 	Y.show();
-	cout << "Z : ";
+	cout << "Resultant Complex Number : ";
 	Z.show();
 }

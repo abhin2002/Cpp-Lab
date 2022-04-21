@@ -2,24 +2,24 @@
 using namespace std; 
 class matrix
 {
-               float **m;
-               int row,col;
-               public:
-                matrix(){}
-                matrix(int r,int c);
-                void input();
-                void display();
-                matrix operator+(matrix M);
-                matrix operator*(matrix M);
+    float **m;
+    int row,col;
+public:
+    matrix(){}
+    matrix(int r,int c);
+    void input();
+    void display();
+    matrix operator+(matrix M);
+    matrix operator*(matrix M);
 };
  
- matrix::matrix(int r,int c)
+matrix::matrix(int r,int c)
 {
-            row=r;
-            col=c;
-            m=new float *[r];
-            for(int i=0;i<r;i++)
-           m[i]=new float[col];
+    row=r;
+    col=c;
+    m=new float *[r];
+    for(int i=0;i<r;i++)
+        m[i]=new float[col];
 }
 void matrix::input()
 {
@@ -46,34 +46,33 @@ void matrix::display()
 matrix matrix::operator+(matrix M)
 {
              
-              matrix mt(row,col);
-              for(int i=0;i<row;i++)
-               {
-                   for(int j=0;j<col;j++)
-                               {
-                              mt.m[i][j]=m[i][j]+M.m[i][j];
-                      }
-                }
-      return mt;
+    matrix mt(row,col);
+    for(int i=0;i<row;i++)
+    {
+        for(int j=0;j<col;j++)
+        {
+            mt.m[i][j]=m[i][j]+M.m[i][j];
+        }
+    }
+    return mt;
 }
  
  
 matrix matrix::operator*(matrix M)
 {
-           matrix mt(row,M.col);
+    matrix mt(row,M.col);
  
-     for(int i=0;i<row;i++)
-          {
-                for(int j=0;j<M.col;j++)
-                 {
-                        mt.m[i][j]=0;
-                        for(int k=0;k<M.row;k++)
-                        mt.m[i][j]+=m[i][k]*M.m[k][j];
-                 }
-         }
- 
-      return mt;
-  }
+    for(int i=0;i<row;i++)
+    {
+        for(int j=0;j<M.col;j++)
+        {
+            mt.m[i][j]=0;
+            for(int k=0;k<M.row;k++)
+            mt.m[i][j]+=m[i][k]*M.m[k][j];
+        }
+    }
+    return mt;
+}
 int main()
 {
      
@@ -95,7 +94,7 @@ int main()
         m3.display();
     }
     else
-    cout<<" Summation  is not possible"<<endl<<endl;
+        cout<<" Summation  is not possible"<<endl<<endl;
     if(c1==r2)
     {            
         matrix m5(r2,c1);
@@ -104,6 +103,6 @@ int main()
         m5.display();
     }
     else
-    cout<<" Multiplication is not possible "<<endl;
+        cout<<" Multiplication is not possible "<<endl;
     return 0;
 }

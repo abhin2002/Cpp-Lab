@@ -55,7 +55,7 @@ int main()
     c2.display();
     cout<<"Sum of complex numbers    : ";
     c3.display();
-    cout<<"Product of complex number : ";
+    cout<<"Product of complex numbers : ";
     c4.display();
 
     return 0;

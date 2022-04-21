@@ -16,7 +16,7 @@ class complex
 public:
 	void input();
 	friend complex sum(complex, complex);
-	void show(complex);
+	void show();
 };
 
 void complex::input()
@@ -34,12 +34,12 @@ complex sum(complex c1, complex c2)
 	c3.y = c1.y+c2.y;
 	return(c3);
 }
-void complex::show(complex c)
+void complex::show()
 {
-	if(c.y<0)
-	{cout<<c.x<<" - j "<<(-1)*(c.y)<<"\n";}
+	if(y<0)
+	{cout<<x<<" - j "<<(-1)*(y)<<"\n";}
 	else
-	cout<<c.x<<" + j "<<c.y<<"\n";
+	cout<<x<<" + j "<<y<<"\n";
 }
 
 int main()
@@ -50,12 +50,12 @@ int main()
 	Y.input();
 	Z=sum(X, Y);
 
-	cout<<"x = ";
-	X.show(X);
-	cout<<"y = ";
-	Y.show(Y);
-	cout<<"z = ";
-	Z.show(Z);
+	cout<<"First Complex Number  = ";
+	X.show();
+	cout<<"Second Complex Number = ";
+	Y.show();
+	cout<<"Sum                   = ";
+	Z.show();
 
 	return 0;
 

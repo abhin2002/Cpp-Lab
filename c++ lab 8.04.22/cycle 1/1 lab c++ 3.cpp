@@ -83,13 +83,7 @@ int main()
 	X[i].input();
 	X[i].calcGrade();
 	X[i].display();
-	i++;
-	char c;
-	cout<<"\nDo yu want to continue\nPress y for continue or any other key to quit : ";
-	cin>>c;
-	if(c!='y')
-		break;
-      
+	i++;  
  }  
 
  cout<<"**** THANK YOU ****\n";
